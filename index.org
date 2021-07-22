@@ -1,0 +1,27 @@
+#+TITLE: ~ Welcome to bugswriter's blog ~
+#+AUTHOR: Suraj Kushwah
+#+EMAIL: suraj@bugswriter.com
+#+OPTIONS: toc:nil num:nil html-postamble:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+#+BEGIN_CENTER
+[ [[https://bugswriter.com][home]] / [[https://bugswriter.com/about][about]] / [[https://bugswriter.com/contact][contact]] / [[https://bugswriter.com/donate][donate]] ]
+#+END_CENTER
+
+
+#+CAPTION: This is a random quote from my quotes collection.
+[[./posts/assets/silicon_valley_quote.jpg]]
+
+Hi, welcome to my blog. Here you can find my study notes, things I think and _daily updates_ about my boring life.
+I am glad you are reading this, if you ever feel you want to give me feedback feel free to email me /suraj@bugswriter.com/.
+
+* List of blogs -
+  1) _[[./posts/emacsconfig.html][Emacs config]]_ -
+     My entire emacs config was written in org mode, so I just exported it.
+  2) _[[./posts/imagemagick.html][Imagemagick]]_ -
+     I made these notes while watching [[https://www.youtube.com/playlist?list=PL9135DE9747FB6F88][Kris Occipinti imagemagick tutorials]].
+  3) _[[https://blog.bugswriter.com/posts/favorite-movies.html][My Movie Collection]]_ -
+     What movies I like to watch, its magnet link and my thoughts.
+
+    
+
+

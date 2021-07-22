@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-22 Thu 05:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Imagemagick</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Suraj Kushwah" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+
+<script type="text/javascript" src="https://blog.bugswriter.com/static/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Imagemagick</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1b54064">1. Introduction</a></li>
+<li><a href="#org376ef64">2. Lets start with simple tool: <code>display</code></a></li>
+<li><a href="#org9f40c4d">3. Add effects with <code>convert</code></a>
+<ul>
+<li><a href="#org2a8968d">3.1. How to convert image format?</a></li>
+<li><a href="#org2e0aa16">3.2. How to negate image?</a></li>
+<li><a href="#orgd79e669">3.3. How to monochrome image?</a></li>
+<li><a href="#org87628b5">3.4. How to grayscale image?</a></li>
+<li><a href="#org34aafc5">3.5. How to blur image?</a></li>
+<li><a href="#org39ca30f">3.6. How to emboss image?</a></li>
+<li><a href="#org6c063e7">3.7. How to shade image?</a></li>
+<li><a href="#org754503c">3.8. How to charcoal image?</a></li>
+<li><a href="#orgd831862">3.9. How to change brightness of image?</a></li>
+<li><a href="#org0a54a27">3.10. How to add edge effect to image?</a></li>
+<li><a href="#org592041d">3.11. How to add border to image?</a></li>
+<li><a href="#org6d77c3e">3.12. How to change saturation of image?</a></li>
+<li><a href="#org70834e8">3.13. How to add paint effect?</a></li>
+<li><a href="#org4ac7936">3.14. How to solarize image?</a></li>
+<li><a href="#org2b586c1">3.15. How to add vignette effect?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+[ <a href="https://blog.bugswriter.com">home</a> / <a href="https://bugswriter.com/contact">contact</a> / <a href="https://bugswriter.com/donate">donate</a>]
+</p>
+
+<div id="outline-container-org1b54064" class="outline-2">
+<h2 id="org1b54064"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Imagemagick is a CLI tool which allow to edit image.
+In simple terms. It's command line gimp. 
+It is really powerful and it's good to know the basics,
+so you can do some basic image editing stuff without
+any GUI image editor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org376ef64" class="outline-2">
+<h2 id="org376ef64"><span class="section-number-2">2</span> Lets start with simple tool: <code>display</code></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>display</code> is a tool comes with imagemagick which is a
+simple image viewer.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">display sample.jpg
+</pre>
+</div>
+
+<div id="org1ce7289" class="figure">
+<p><img src="assets/sample.jpg" alt="sample.jpg" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Sample image which I'll use in this tutorial.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9f40c4d" class="outline-2">
+<h2 id="org9f40c4d"><span class="section-number-2">3</span> Add effects with <code>convert</code></h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Lets ride on <b>How to</b> train of <code>convert</code> command and see
+what kind of effects we can easily apply by using imagemagick.
+</p>
+</div>
+<div id="outline-container-org2a8968d" class="outline-3">
+<h3 id="org2a8968d"><span class="section-number-3">3.1</span> How to convert image format?</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Many people don't know how to do something so basic like.
+<b>Converting jpg image into png</b>
+With imagemagick's convert tool it is pretty simple to do.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert sample.jpg output.png
+</pre>
+</div>
+<p>
+yes that's it!
+You can also make gif out of multiple images.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert *.png output.gif
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2e0aa16" class="outline-3">
+<h3 id="org2e0aa16"><span class="section-number-3">3.2</span> How to negate image?</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<code>convert</code> is another tool which comes with imagemagick.
+You can use <code>convert</code> to achieve lot of effects.
+Here is the example of <b>negate</b>:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -negate sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org8b8a92e" class="figure">
+<p><img src="assets/1.jpg" alt="1.jpg" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Image after the negate command</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd79e669" class="outline-3">
+<h3 id="orgd79e669"><span class="section-number-3">3.3</span> How to monochrome image?</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Monochrome means truly black and white (no grey),
+we can use <code>convert</code> magic to do this.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -monochrome sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org81cc16c" class="figure">
+<p><img src="assets/2.jpg" alt="2.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Sample image output in monochrome.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87628b5" class="outline-3">
+<h3 id="org87628b5"><span class="section-number-3">3.4</span> How to grayscale image?</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Basically we change colorspace to gray.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -colorspace Gray sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org8f726cc" class="figure">
+<p><img src="assets/3.jpg" alt="3.jpg" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Output is in grayscale.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34aafc5" class="outline-3">
+<h3 id="org34aafc5"><span class="section-number-3">3.5</span> How to blur image?</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Yes you can also easily blur image with <code>convert</code> tool.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -blur 0x3 sample.jpg output.jpg
+</pre>
+</div>
+<p>
+In below command <code>0x3</code> is the parameter for blur.
+<i>Higher the number, higher the blur.</i>
+</p>
+
+<div id="orgc4d5674" class="figure">
+<p><img src="assets/4.jpg" alt="4.jpg" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Output is now blurred.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org39ca30f" class="outline-3">
+<h3 id="org39ca30f"><span class="section-number-3">3.6</span> How to emboss image?</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+Emboss is a yet another effect. It is a graphics technique in
+which each pixel of an image is replaced either by a highlight
+or a shadow, depending on light/dark.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -emboss 10 sample.jpg output.jpg
+</pre>
+</div>
+<p>
+Here I <code>-emboss 10</code> where <code>10</code> is the parameter. Basically
+how much emboss you want.
+</p>
+
+<p>
+<b>Note</b>: Higher number will take more time.
+</p>
+
+<div id="org6967c69" class="figure">
+<p><img src="assets/5.jpg" alt="5.jpg" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Emboss with parameter 10</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c063e7" class="outline-3">
+<h3 id="org6c063e7"><span class="section-number-3">3.7</span> How to shade image?</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+Shade is like emboss but with 100x times brightness.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -shade 120x45 sample.jpg output.jpg
+</pre>
+</div>
+<p>
+In my case shade parameter is <code>120x45</code>. But you can play
+with these numbers. The first number is basically the depth and
+second numbers is brightness. (firstxsecond).
+</p>
+
+<div id="org2423fa0" class="figure">
+<p><img src="assets/6.jpg" alt="6.jpg" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Shade output with 120x45.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org754503c" class="outline-3">
+<h3 id="org754503c"><span class="section-number-3">3.8</span> How to charcoal image?</h3>
+<div class="outline-text-3" id="text-3-8">
+<p>
+Here how to charcoal a image.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -charcoal 1 sample.jpg output.jpg
+</pre>
+</div>
+<p>
+In my case the parameter is <code>1</code>. the higher the number, thicker
+the line.
+</p>
+
+<div id="org36d9037" class="figure">
+<p><img src="assets/7.jpg" alt="7.jpg" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Charcoal effect with value 1.</p>
+</div>
+
+<div id="org008d1f7" class="figure">
+<p><img src="assets/8.jpg" alt="8.jpg" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Charcoal effect with value 25.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd831862" class="outline-3">
+<h3 id="orgd831862"><span class="section-number-3">3.9</span> How to change brightness of image?</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+It's very useful to know changing brightness with
+imagemagick. To change brightness we have to use flag <code>-modulate</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -modulate 50 sample.jpg output.jpg
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-sh">convert -modulate 200 sample.jpg output.jpg
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+If Number less then 100 will make image darker.
+</p>
+
+<div id="org3e135a0" class="figure">
+<p><img src="assets/9.jpg" alt="9.jpg" />
+</p>
+<p><span class="figure-number">Figure 10: </span>modulate value is 50 (less than 100)</p>
+</div></li>
+<li><p>
+If Number greater than 100 will make image brighter.
+</p>
+
+<div id="org25e2e64" class="figure">
+<p><img src="assets/10.jpg" alt="10.jpg" />
+</p>
+<p><span class="figure-number">Figure 11: </span>modulate value is 200 (more than 100)</p>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0a54a27" class="outline-3">
+<h3 id="org0a54a27"><span class="section-number-3">3.10</span> How to add edge effect to image?</h3>
+<div class="outline-text-3" id="text-3-10">
+<p>
+Edge is another very useful effect.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -edge 1 sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org5ef1ba5" class="figure">
+<p><img src="assets/11.jpg" alt="11.jpg" />   
+</p>
+<p><span class="figure-number">Figure 12: </span>Output with edge parameter 1</p>
+</div>
+
+<p>
+Lets change the edge parameter to 25. This will take time to finish.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -edge 25 sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="orge9daa02" class="figure">
+<p><img src="assets/12.jpg" alt="12.jpg" />   
+</p>
+<p><span class="figure-number">Figure 13: </span>Output with edge parameter 25</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org592041d" class="outline-3">
+<h3 id="org592041d"><span class="section-number-3">3.11</span> How to add border to image?</h3>
+<div class="outline-text-3" id="text-3-11">
+<p>
+Lets do something slightly unique now.
+Like adding border to an image.
+</p>
+
+<p>
+<b>Note</b>: Border change the size (resolution) of the image.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -bordercolor red -border 10 sample.jpg output.jpg
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>-bordercolor</code> flag is for telling what border color you want.
+You can also give color with rgb values. Like this <code>rgb(200,0,200)</code>.</li>
+<li><code>-border</code> flag is for border which take a value as parameter which is
+the thickness of border.</li>
+</ul>
+
+<div id="org48e07ac" class="figure">
+<p><img src="assets/13.jpg" alt="13.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d77c3e" class="outline-3">
+<h3 id="org6d77c3e"><span class="section-number-3">3.12</span> How to change saturation of image?</h3>
+<div class="outline-text-3" id="text-3-12">
+<p>
+Here we will again use <code>-modulate</code> flag.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -modulate 100,250 sample.jpg output.jpg
+</pre>
+</div>
+<p>
+The first numbers 100 is just for brightness (in this case we are
+not changing brightness). The second numbers 250 is actually the
+value of saturation.
+</p>
+
+<div id="orga7d0cc9" class="figure">
+<p><img src="assets/14.jpg" alt="14.jpg" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Output with 250 Saturation</p>
+</div>
+<ul class="org-ul">
+<li>Any numbers greater than 100 is more saturated and
+less than 100 is less saturated.</li>
+<li>You can use saturation value 0 for grayscale image.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org70834e8" class="outline-3">
+<h3 id="org70834e8"><span class="section-number-3">3.13</span> How to add paint effect?</h3>
+<div class="outline-text-3" id="text-3-13">
+<p>
+Effect to convert image into a oil painting.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -paint 5 sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org0deceef" class="figure">
+<p><img src="assets/15.jpg" alt="15.jpg" />
+</p>
+<p><span class="figure-number">Figure 16: </span>Output with paint effect</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ac7936" class="outline-3">
+<h3 id="org4ac7936"><span class="section-number-3">3.14</span> How to solarize image?</h3>
+<div class="outline-text-3" id="text-3-14">
+<p>
+For adding solarize effect take percentage instead of value.
+Here the lower the percentage, the more the effect.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -solarize 40% sample.jpg output.jpg
+</pre>
+</div>
+
+<div id="org9b84772" class="figure">
+<p><img src="assets/16.jpg" alt="16.jpg" />
+</p>
+<p><span class="figure-number">Figure 17: </span>Output with solarized effect</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b586c1" class="outline-3">
+<h3 id="org2b586c1"><span class="section-number-3">3.15</span> How to add vignette effect?</h3>
+<div class="outline-text-3" id="text-3-15">
+<p>
+Add vignette effect quickly on your nostalgic high school photos.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">convert -background black -vignette 100x300 output.jpg
+</pre>
+</div>
+<ul class="org-ul">
+<li>Higher the numbers smoother the vignette effect is.</li>
+</ul>
+
+<div id="org50dfb10" class="figure">
+<p><img src="assets/17.jpg" alt="17.jpg" />
+</p>
+<p><span class="figure-number">Figure 18: </span>Smooth vignette effect with 100x300</p>
+</div>
+<ul class="org-ul">
+<li>Lower the number stroger the effect is</li>
+</ul>
+
+<div id="orgf02b5a0" class="figure">
+<p><img src="assets/18.jpg" alt="18.jpg" />
+</p>
+<p><span class="figure-number">Figure 19: </span>Strong vignette effect with 10x50</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Suraj Kushwah</p>
+<p class="date">Created: 2021-07-22 Thu 05:05</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

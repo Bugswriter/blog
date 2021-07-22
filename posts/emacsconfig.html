@@ -1,0 +1,1751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-07-22 Thu 05:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archmacs Config</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Suraj Kushwah" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://blog.bugswriter.com/static/style.css"/>
+
+<script type="text/javascript" src="https://blog.bugswriter.com/static/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+// @license-end
+</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Archmacs Config</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2ebcce6">1. Installation</a></li>
+<li><a href="#org1211160">2. Dependencies</a></li>
+<li><a href="#org01b40af">3. Appearance</a>
+<ul>
+<li><a href="#org675d28e">3.1. Theme</a></li>
+<li><a href="#orgd1ca7f5">3.2. Font</a></li>
+</ul>
+</li>
+<li><a href="#org656f935">4. Basic Interface Settings</a>
+<ul>
+<li><a href="#org7448c2f">4.1. Looks</a>
+<ul>
+<li><a href="#org4a73073">4.1.1. Remove lame startup screen</a></li>
+<li><a href="#org6bd073b">4.1.2. Disable menus and scrollbars</a></li>
+<li><a href="#org5348880">4.1.3. Disable bell</a></li>
+<li><a href="#orgf09ace2">4.1.4. Set UTF-8 encoding</a></li>
+</ul>
+</li>
+<li><a href="#orgd82685d">4.2. Functionality</a>
+<ul>
+<li><a href="#org10a0f94">4.2.1. Disable backups and auto-saves</a></li>
+<li><a href="#org0ef422b">4.2.2. Change yes-or-no questions into y-or-n questions</a></li>
+<li><a href="#org0dfaa7c">4.2.3. Async</a></li>
+</ul>
+</li>
+<li><a href="#org7d5a69f">4.3. Cool Icons</a></li>
+<li><a href="#orgb65f708">4.4. Async</a></li>
+</ul>
+</li>
+<li><a href="#orgc7dce88">5. Window Manager</a>
+<ul>
+<li><a href="#org02fcfd2">5.1. EXWM</a></li>
+<li><a href="#org97addbf">5.2. Desktop Environment</a></li>
+<li><a href="#org357885c">5.3. Dmenu</a></li>
+</ul>
+</li>
+<li><a href="#orgdc208dd">6. Terminal</a>
+<ul>
+<li><a href="#orgdd41266">6.1. Vterm</a></li>
+</ul>
+</li>
+<li><a href="#orgad6d29d">7. Dashboard</a></li>
+<li><a href="#org2cb0594">8. Modeline</a>
+<ul>
+<li><a href="#orgce75629">8.1. Spaceline</a></li>
+<li><a href="#org40daa01">8.2. Diminish Modes</a></li>
+<li><a href="#org5fa6c86">8.3. System load</a></li>
+<li><a href="#orgefe8a24">8.4. Fancy Battery</a></li>
+</ul>
+</li>
+<li><a href="#org81f7ea4">9. Minor Conveiniences</a>
+<ul>
+<li><a href="#org68bac5f">9.1. Visiting the configuration</a></li>
+<li><a href="#orgd6c4e54">9.2. Reloading the configuration</a></li>
+<li><a href="#orgf8bbd4e">9.3. Subwords</a></li>
+<li><a href="#org43476a4">9.4. Electric pair mode</a></li>
+<li><a href="#org3b47e6c">9.5. Kill whole word</a></li>
+<li><a href="#org7b4853d">9.6. Hungry delete</a></li>
+<li><a href="#org6a37429">9.7. Copy whole line</a></li>
+<li><a href="#orgacfea2a">9.8. Beacon</a></li>
+<li><a href="#org3f53fe6">9.9. Rainbow</a></li>
+<li><a href="#org0f3d87c">9.10. Rainbow Delimiter</a></li>
+<li><a href="#org4c90b82">9.11. Expand region</a></li>
+<li><a href="#org2ff4e9d">9.12. Zapping to char</a></li>
+</ul>
+</li>
+<li><a href="#orgb1e0356">10. Kill ring</a>
+<ul>
+<li><a href="#org5d534e4">10.1. Maximum entried on the ring</a></li>
+<li><a href="#org9d5dc8f">10.2. popup-kill-ring</a></li>
+</ul>
+</li>
+<li><a href="#orgabc6d7d">11. Git integration</a>
+<ul>
+<li><a href="#org3ba964a">11.1. Magit</a></li>
+</ul>
+</li>
+<li><a href="#org110f9b5">12. Sudo edit</a></li>
+<li><a href="#org3e513b6">13. Org</a>
+<ul>
+<li><a href="#org1823209">13.1. Common Settings</a></li>
+<li><a href="#org9355df0">13.2. Org Bullets</a></li>
+</ul>
+</li>
+<li><a href="#org048767e">14. Buffers</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgab20ff9">14.0.1. Always murder current buffer</a></li>
+<li><a href="#org6e79ba9">14.0.2. Toggle maximize buffer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5712329">15. Projectile</a>
+<ul>
+<li><a href="#orgd826188">15.1. Enable projectile globally</a></li>
+<li><a href="#orgfe670cc">15.2. Let projectile call make</a></li>
+</ul>
+</li>
+<li><a href="#org5b16656">16. Which Key</a></li>
+<li><a href="#org0c65489">17. Text Manipulation</a></li>
+<li><a href="#org48dc3df">18. Telega</a></li>
+<li><a href="#orgad384a8">19. IDO</a>
+<ul>
+<li><a href="#orgece4f07">19.1. Enable IDO mode</a></li>
+<li><a href="#orgaf69f10">19.2. IDO vertical</a></li>
+<li><a href="#org874d1e2">19.3. Smex</a></li>
+</ul>
+</li>
+<li><a href="#orgbb3ffd0">20. Buffers</a>
+<ul>
+<li><a href="#org8e70c4b">20.1. Enable ibuffer</a></li>
+<li><a href="#org88f5e21">20.2. Expert mode</a></li>
+<li><a href="#orgacd80a5">20.3. Kill all buffers</a></li>
+</ul>
+</li>
+<li><a href="#orgdb23998">21. Avy</a></li>
+<li><a href="#orgbdc3e6a">22. Config edit/reload</a></li>
+<li><a href="#org3eddaf7">23. Moving Around Emacs</a>
+<ul>
+<li><a href="#org3b89b03">23.1. Switch Window</a></li>
+<li><a href="#orgee82a5d">23.2. Following window splits</a></li>
+</ul>
+</li>
+<li><a href="#orgd04a73c">24. Auto Completion</a>
+<ul>
+<li><a href="#orgb03299b">24.1. Company</a></li>
+</ul>
+</li>
+<li><a href="#org9ff2179">25. Swiper</a></li>
+<li><a href="#orged2f28e">26. Clock</a>
+<ul>
+<li><a href="#orga822502">26.1. Time Format</a></li>
+<li><a href="#org564546c">26.2. Enabling the mode</a></li>
+</ul>
+</li>
+<li><a href="#orgf3b15a0">27. Music</a>
+<ul>
+<li><a href="#orge6d1340">27.1. EMMS</a></li>
+<li><a href="#org1f4b843">27.2. MPC</a></li>
+</ul>
+</li>
+<li><a href="#org3f1c12b">28. Symon</a></li>
+<li><a href="#org2f0751c">29. EMMS</a></li>
+<li><a href="#org7b3e1bf">30. Dired Launch</a></li>
+</ul>
+</div>
+</div>
+<p>
+[ <a href="https://blog.bugswriter.com">home</a> / <a href="https://bugswriter.com/contact">contact</a> / <a href="https://bugswriter.com/donate">donate</a>]
+</p>
+
+<div id="outline-container-org2ebcce6" class="outline-2">
+<h2 id="org2ebcce6"><span class="section-number-2">1</span> Installation</h2>
+<div class="outline-text-2" id="text-1">
+
+<div id="orgc73b544" class="figure">
+<p><img src="./assets/screen.png" alt="screen.png" />
+</p>
+</div>
+
+<p>
+<code>git clone https://github.com/bugswriter/ArchMacs.git ~/.emacs.d</code>
+Don't forget to remove your own <code>~/.emacs</code> and your <code>~/.emacs.d</code> prior 
+to cloning this configuration. After cloning next time when you launch
+emacs you it's will take some time to collect all packages, you may also
+encounter some warnings and errors which are safe to ignore as long as
+you relaunch emacs and see none.
+</p>
+
+<p>
+The configuration is written in org mode, which means it's self documented.
+So you should try reading, understanding and tweaking according to your liking.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1211160" class="outline-2">
+<h2 id="org1211160"><span class="section-number-2">2</span> Dependencies</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Many <i>melpa</i> packages in this configurationn depends on Arch Linux packages too.
+Some of these packages exist in main repo and for some packages you have
+to use AUR. If you are not on Arch or any Arch based distro.
+I am pretty sure you will find these packages for your distro too.
+</p>
+
+<p>
+Here is a nice table to display all required packages. 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Package</th>
+<th scope="col" class="org-left">Purpose?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">xorg-server</td>
+<td class="org-left">obvious reasons</td>
+</tr>
+
+<tr>
+<td class="org-left">amixer</td>
+<td class="org-left">control sound volume</td>
+</tr>
+
+<tr>
+<td class="org-left">brightnessctl</td>
+<td class="org-left">change brightness</td>
+</tr>
+
+<tr>
+<td class="org-left">scrot</td>
+<td class="org-left">taking screenshots</td>
+</tr>
+
+<tr>
+<td class="org-left">TLP</td>
+<td class="org-left">wifi and bluetooth</td>
+</tr>
+
+<tr>
+<td class="org-left">slock</td>
+<td class="org-left">screenlock</td>
+</tr>
+
+<tr>
+<td class="org-left">upower</td>
+<td class="org-left">keyboard backlight</td>
+</tr>
+
+<tr>
+<td class="org-left">mpd</td>
+<td class="org-left">listening songs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org01b40af" class="outline-2">
+<h2 id="org01b40af"><span class="section-number-2">3</span> Appearance</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+My Archmacs have killer looks. The code of this section is responsible for it.
+</p>
+</div>
+<div id="outline-container-org675d28e" class="outline-3">
+<h3 id="org675d28e"><span class="section-number-3">3.1</span> Theme</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+When my crush rejected me by saying you are ugly. I learned that looks matter alot.
+My emacs will not be ugly like me and no one will dump my config for this.
+So I decided to use <code>doom-themes</code>. You can change <code>doom-themes</code> to any other theme.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">doom-themes</span>
+      <span style="color: #fd971f;">:if</span> window-system
+      <span style="color: #fd971f;">:ensure</span> t
+      <span style="color: #fd971f;">:config</span>
+      (load-theme 'doom-molokai t)
+      (doom-themes-org-config)
+      (doom-themes-visual-bell-config)
+      (menu-bar-mode -1)
+      (tool-bar-mode -1)
+      (fringe-mode -1)
+      (scroll-bar-mode -1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1ca7f5" class="outline-3">
+<h3 id="orgd1ca7f5"><span class="section-number-3">3.2</span> Font</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Just like with power comes great responsibility, with great theme comes great font.
+Here I use <code>JetBrains Mono</code> Which is similar to <code>fira</code>. Feel free to change if you
+have shitty taste.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(add-to-list 'default-frame-alist
+             '(font . <span style="color: #e2c770;">"JetBrains Mono-14"</span>))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org656f935" class="outline-2">
+<h2 id="org656f935"><span class="section-number-2">4</span> Basic Interface Settings</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+These are settings that do not depend on packages and built-in enchancements to the UI.
+</p>
+</div>
+<div id="outline-container-org7448c2f" class="outline-3">
+<h3 id="org7448c2f"><span class="section-number-3">4.1</span> Looks</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-org4a73073" class="outline-4">
+<h4 id="org4a73073"><span class="section-number-4">4.1.1</span> Remove lame startup screen</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+We use an actual replacement for it, keep reading or head directly to dashboard
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> inhibit-startup-message t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bd073b" class="outline-4">
+<h4 id="org6bd073b"><span class="section-number-4">4.1.2</span> Disable menus and scrollbars</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+If you like using any of those, change <code>-1</code> to <code>1</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5348880" class="outline-4">
+<h4 id="org5348880"><span class="section-number-4">4.1.3</span> Disable bell</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+This is annoying, remove this line if you like being visually reminded of events.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> ring-bell-function 'ignore)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf09ace2" class="outline-4">
+<h4 id="orgf09ace2"><span class="section-number-4">4.1.4</span> Set UTF-8 encoding</h4>
+<div class="outline-text-4" id="text-4-1-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd82685d" class="outline-3">
+<h3 id="orgd82685d"><span class="section-number-3">4.2</span> Functionality</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-org10a0f94" class="outline-4">
+<h4 id="org10a0f94"><span class="section-number-4">4.2.1</span> Disable backups and auto-saves</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+I don't use either, you might want to turn those from <code>nil</code> to <code>t</code> if you do.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> make-backup-files nil)
+(<span style="color: #fb2874;">setq</span> auto-save-default nil)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ef422b" class="outline-4">
+<h4 id="org0ef422b"><span class="section-number-4">4.2.2</span> Change yes-or-no questions into y-or-n questions</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defalias</span> '<span style="color: #b6e63e;">yes-or-no-p</span> 'y-or-n-p)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0dfaa7c" class="outline-4">
+<h4 id="org0dfaa7c"><span class="section-number-4">4.2.3</span> Async</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+Lets us use asynchronous processes whereever possible, pretty useful.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">async</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (dired-async-mode 1))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7d5a69f" class="outline-3">
+<h3 id="org7d5a69f"><span class="section-number-3">4.3</span> Cool Icons</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">all-the-icons</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>)
+
+(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">all-the-icons-dired</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+
+(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">all-the-icons-ibuffer</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (all-the-icons-ibuffer-mode 1))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb65f708" class="outline-3">
+<h3 id="orgb65f708"><span class="section-number-3">4.4</span> Async</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">async</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (dired-async-mode 1))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc7dce88" class="outline-2">
+<h2 id="orgc7dce88"><span class="section-number-2">5</span> Window Manager</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Yes, emacs can work as a window manager. You can run browsers, media players, games, vim&#x2026;
+everything inside emacs. Because emacs can work as window manager.
+This made my life 10x easier. Archmacs don't need any desktop environment, you can just use
+emacs to operate your computer. 
+</p>
+</div>
+<div id="outline-container-org02fcfd2" class="outline-3">
+<h3 id="org02fcfd2"><span class="section-number-3">5.1</span> EXWM</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+<b>EXWM</b> is one of the most popular emacs package. EXWM is a window manager. With the help of
+this package we can easily run any program inside emacs as a emacs buffer. Which is very cool.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">exwm</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">exwm-config</span>)
+  (fringe-mode 3)
+  (server-start)
+  (exwm-config-ido)
+  (<span style="color: #fb2874;">setq</span> exwm-workspace-number 1)
+  (exwm-input-set-key (kbd <span style="color: #e2c770;">"s-r"</span>) #'exwm-reset)
+  (exwm-input-set-key (kbd <span style="color: #e2c770;">"s-k"</span>) #'exwm-workspace-delete)
+  (exwm-input-set-key (kbd <span style="color: #e2c770;">"s-w"</span>) #'exwm-workspace-swap)
+  (<span style="color: #fb2874;">dotimes</span> (i 10)
+    (exwm-input-set-key (kbd (format <span style="color: #e2c770;">"s-%d"</span> i))
+                        `(<span style="color: #fb2874;">lambda</span> ()
+                           (<span style="color: #fb2874;">interactive</span>)
+                           (exwm-workspace-switch-create ,i)
+                           (message <span style="color: #e2c770;">"Workspace %d"</span>, i))))
+  (exwm-input-set-key (kbd <span style="color: #e2c770;">"s-&amp;"</span>)
+                      (<span style="color: #fb2874;">lambda</span> (command)
+                        (<span style="color: #fb2874;">interactive</span> (list (read-shell-command <span style="color: #e2c770;">"$ "</span>)))
+                        (start-process-shell-command command nil command)))
+  (exwm-enable))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org97addbf" class="outline-3">
+<h3 id="org97addbf"><span class="section-number-3">5.2</span> Desktop Environment</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+This little package single handedly handle lot of small functionality which we need to
+use emacs as a deskto environment. 
+Here is the list of things this package will take care of -
+</p>
+<ul class="org-ul">
+<li>Controling sound volume with volume key (inc,dec,mute)</li>
+<li>Controling brightness with brightness key (inc/dec)</li>
+<li>Taking Screenshot with print screen key</li>
+<li>Handles wifi and bluetooth.</li>
+<li>Handle lockscreen.</li>
+</ul>
+<p>
+I recommend you to read more about this package functionality on - <a href="https://github.com/DanmienCassou/desktop-environe">It's Github</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">desktop-environment</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (desktop-environment-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org357885c" class="outline-3">
+<h3 id="org357885c"><span class="section-number-3">5.3</span> Dmenu</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Now since we can open any program inside emacs, we also need a menu to search and start
+any application. For this we can use <code>dmenu</code>. Dmenu is suckless utility. But here we
+using a melpa package of dmenu which allow dmenu inside emacs. Inside emacs using dmenu
+for finding programs is pretty quick. I have bind <code>s-SPC</code> to open dmenu which make
+it more quicker.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">dmenu</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span>
+    (<span style="color: #e2c770;">"s-SPC"</span> . 'dmenu))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc208dd" class="outline-2">
+<h2 id="orgdc208dd"><span class="section-number-2">6</span> Terminal</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Not having a cool terminal inside your text editor is a crime, exactly like saying
+Archmacs text editor which I just did.
+</p>
+</div>
+<div id="outline-container-orgdd41266" class="outline-3">
+<h3 id="orgdd41266"><span class="section-number-3">6.1</span> Vterm</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Many emacs users including me like vterm. It's more solid and polished. I bind <code>s-return</code> 
+to open terminal because I know you always want terminal ASAP.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">vterm</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (global-set-key (kbd <span style="color: #e2c770;">"&lt;s-return&gt;"</span>) 'vterm))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad6d29d" class="outline-2">
+<h2 id="orgad6d29d"><span class="section-number-2">7</span> Dashboard</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+This is your new startup screen, together with projectile it works in unison and provides 
+you with a quick look into you latest projects and files. Change the welcome message to whatever string
+you want and change the numbers to suit you liking, I find 5 to be enough.
+I also added my image and a cool line from show one punch man, you may want to change that.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">dashboard</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+    (dashboard-setup-startup-hook)
+    (<span style="color: #fb2874;">setq</span> dashboard-startup-banner <span style="color: #e2c770;">"~/.emacs.d/img/avatar.png"</span>)
+    (<span style="color: #fb2874;">setq</span> dashboard-items '((recents  . 5)
+                            (projects . 5)))
+    (<span style="color: #fb2874;">setq</span> dashboard-banner-logo-title <span style="color: #e2c770;">"I am just a coder for fun"</span>))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2cb0594" class="outline-2">
+<h2 id="org2cb0594"><span class="section-number-2">8</span> Modeline</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+The modeline is the heart of emacs, it displays information about modes and states 
+you are in. 
+</p>
+</div>
+<div id="outline-container-orgce75629" class="outline-3">
+<h3 id="orgce75629"><span class="section-number-3">8.1</span> Spaceline</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+<code>Spaceline</code> is a mode-line theme for spacemacs. It's is simple and looks good.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">spaceline</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">spaceline-config</span>)
+  (<span style="color: #fb2874;">setq</span> powerline-default-separator (<span style="color: #fb2874;">quote</span> arrow))
+  (spaceline-spacemacs-theme))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org40daa01" class="outline-3">
+<h3 id="org40daa01"><span class="section-number-3">8.2</span> Diminish Modes</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+By default there is alot of garbage information about many minor modes in modeline which we
+don't want to display. <code>Diminish</code> is a package which allow us to remove those.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">diminish</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (diminish 'which-key-mode)
+  (diminish 'linum-relative-mode)
+  (diminish 'hungry-delete-mode)
+  (diminish 'visual-line-mode)
+  (diminish 'subword-mode)
+  (diminish 'beacon-mode)
+  (diminish 'irony-mode)
+  (diminish 'page-break-lines-mode)
+  (diminish 'auto-revert-mode)
+  (diminish 'rainbow-delimiters-mode)
+  (diminish 'rainbow-mode)
+  (diminish 'yas-minor-mode)
+  (diminish 'flycheck-mode)
+  (diminish 'helm-mode))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5fa6c86" class="outline-3">
+<h3 id="org5fa6c86"><span class="section-number-3">8.3</span> System load</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+By default emacs show system load information which is completely useless to me. 
+So It's better to remove it.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> display-time-default-load-average nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgefe8a24" class="outline-3">
+<h3 id="orgefe8a24"><span class="section-number-3">8.4</span> Fancy Battery</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+<code>fancy-battery</code> is a <i>melpa</i> package to display battery information at modeline. So yeah in 
+Archmacs you can see battery status inside emacs easily. It's also have lot of fancy way to 
+warn about low battery and all the other stuff.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">fancy-battery</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (fancy-battery-mode 1)
+  (<span style="color: #fb2874;">setq</span> fancy-battery-show-percentage t))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81f7ea4" class="outline-2">
+<h2 id="org81f7ea4"><span class="section-number-2">9</span> Minor Conveiniences</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Emacs is at it's best when it just does things for you, shows you the way, guides you so to
+speak. This can be best achieved using a number of small extensions. While on their own they
+might not be particularly impressive. 
+</p>
+</div>
+<div id="outline-container-org68bac5f" class="outline-3">
+<h3 id="org68bac5f"><span class="section-number-3">9.1</span> Visiting the configuration</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+Since this config is like a complete doc, it's better to bind a key to open it.
+I bind <code>C-c e</code> to quickly open <code>~/.emacs.d/config.org</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">config-visit</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (find-file <span style="color: #e2c770;">"~/.emacs.d/config.org"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"C-c e"</span>) 'config-visit)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd6c4e54" class="outline-3">
+<h3 id="orgd6c4e54"><span class="section-number-3">9.2</span> Reloading the configuration</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+Closing and opening emacs again after some quick changes in config is pain, especially when
+you are using emacs as a window manager. So here I bind a key <code>C-c r</code> to do it quickly without
+closing emacs. 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">config-reload</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (org-babel-load-file (expand-file-name <span style="color: #e2c770;">"~/.emacs.d/config.org"</span>)))
+(global-set-key (kbd <span style="color: #e2c770;">"C-c r"</span>) 'config-reload)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf8bbd4e" class="outline-3">
+<h3 id="orgf8bbd4e"><span class="section-number-3">9.3</span> Subwords</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+Subword will remaps word-based editing commands to subword-based commands that 
+handle symbols with mixed uppercase and lowercase letters.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(global-subword-mode 1)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org43476a4" class="outline-3">
+<h3 id="org43476a4"><span class="section-number-3">9.4</span> Electric pair mode</h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+Electric Pair mode, a global minor mode, provides a way to easily insert matching delimiters:
+parentheses, braces, brackets, etc. 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> electric-pair-pairs '(
+                           (?\{ . ?\})
+                           (?\( . ?\))
+                           (?\[ . ?\])
+                           (?\" . ?\")
+                           ))
+(electric-pair-mode t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b47e6c" class="outline-3">
+<h3 id="org3b47e6c"><span class="section-number-3">9.5</span> Kill whole word</h3>
+<div class="outline-text-3" id="text-9-5">
+<p>
+This is a function which allow you to delete a complete word with one keybind. My keybind
+for deleting a word is <code>C-c w w</code>. I wish emacs have this feature by default.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">kill-whole-word</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (backward-word)
+  (kill-word 1))
+(global-set-key (kbd <span style="color: #e2c770;">"C-c w w"</span>) 'kill-whole-word)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7b4853d" class="outline-3">
+<h3 id="org7b4853d"><span class="section-number-3">9.6</span> Hungry delete</h3>
+<div class="outline-text-3" id="text-9-6">
+<p>
+I hate pressing backspace and waiting for deleting whitespaces. This package <code>hungry-delete</code>
+delete all whitespaces with just one click on backspace.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">hungry-delete</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span> (global-hungry-delete-mode))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6a37429" class="outline-3">
+<h3 id="org6a37429"><span class="section-number-3">9.7</span> Copy whole line</h3>
+<div class="outline-text-3" id="text-9-7">
+<p>
+Emacs by default don't have any function which copy the whole line. But gladly emacs gave us
+power to write our own functions. So I write my own and bind it to <code>C-c w l</code>. 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">copy-whole-line</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (<span style="color: #fb2874;">save-excursion</span>
+    (kill-new
+     (buffer-substring
+      (point-at-bol)
+      (point-at-eol)))))
+(global-set-key (kbd <span style="color: #e2c770;">"C-c w l"</span>) 'copy-whole-line)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgacfea2a" class="outline-3">
+<h3 id="orgacfea2a"><span class="section-number-3">9.8</span> Beacon</h3>
+<div class="outline-text-3" id="text-9-8">
+<p>
+While changing buffers or workspaces, the first thing you do is look for you cursor. Unless 
+you know its position, you can not move it efficiently. Every time you change buffers, the 
+current position of your cursor will be briefly highlighted now.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">beacon</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+    (beacon-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f53fe6" class="outline-3">
+<h3 id="org3f53fe6"><span class="section-number-3">9.9</span> Rainbow</h3>
+<div class="outline-text-3" id="text-9-9">
+<p>
+Mostly useful if you are into web development or game development. Every time emacs encounters
+a hexadeimal code that resembles a color, it will automatically highlight it in the appropriate
+color. This is a lot cooler than you may think.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">rainbow-mode</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (add-hook 'prog-mode-hook 'rainbow-mode))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0f3d87c" class="outline-3">
+<h3 id="org0f3d87c"><span class="section-number-3">9.10</span> Rainbow Delimiter</h3>
+<div class="outline-text-3" id="text-9-10">
+<p>
+Colors parentheses and other delimiters depending on their depth, useful for any language
+using them, especially lisp.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">rainbow-delimiters</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (rainbow-delimiters-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4c90b82" class="outline-3">
+<h3 id="org4c90b82"><span class="section-number-3">9.11</span> Expand region</h3>
+<div class="outline-text-3" id="text-9-11">
+<p>
+A pretty simple package, takes your cursor and sementically expands the region, so words, 
+sentencies, maybe the contents of some parentheses, it's awesome, try it out.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">expand-region</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span> (<span style="color: #e2c770;">"C-q"</span> . er/expand-region))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2ff4e9d" class="outline-3">
+<h3 id="org2ff4e9d"><span class="section-number-3">9.12</span> Zapping to char</h3>
+<div class="outline-text-3" id="text-9-12">
+<p>
+A nifty little package that kills all text between your cursor and a selected character. A lot
+more useful than you might think. If you with to include the selected character in the killed
+region, change <code>zzz-up-to-char</code> into <code>zzz-to-char</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">zzz-to-char</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span> (<span style="color: #e2c770;">"M-z"</span> . zzz-up-to-char))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb1e0356" class="outline-2">
+<h2 id="orgb1e0356"><span class="section-number-2">10</span> Kill ring</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+There is lot of cutomization to the kill ring, and while I have not used it much before, I 
+decided that it was time to change that.
+</p>
+</div>
+<div id="outline-container-org5d534e4" class="outline-3">
+<h3 id="org5d534e4"><span class="section-number-3">10.1</span> Maximum entried on the ring</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+The default is 60, I personally need more sometimes.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> kill-ring-max 100)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d5dc8f" class="outline-3">
+<h3 id="org9d5dc8f"><span class="section-number-3">10.2</span> popup-kill-ring</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+Out of all the packages I tried out, this one being the simplest, appealed to me most. With a
+simple M-y you can now browse your kill-ring like browsing autocompletion items. C-n and C-p
+totally work for this.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">popup-kill-ring</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span> (<span style="color: #e2c770;">"M-y"</span> . popup-kill-ring))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgabc6d7d" class="outline-2">
+<h2 id="orgabc6d7d"><span class="section-number-2">11</span> Git integration</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Countless are the times where I opened vterm and use <code>git</code> on something. These times are also 
+something that I'd prefer stay in the past, since <code>magit</code> is great. It's easy and intuitive to
+use, shows its options at a keypress and much more.
+</p>
+</div>
+<div id="outline-container-org3ba964a" class="outline-3">
+<h3 id="org3ba964a"><span class="section-number-3">11.1</span> Magit</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+<code>magit</code> is a amazing <i>melpa</i> package which allow me to use git within emacs more better way.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">magit</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">setq</span> magit-push-always-verify nil)
+  (<span style="color: #fb2874;">setq</span> git-commit-summary-max-length 50)
+  <span style="color: #fd971f;">:bind</span>
+  (<span style="color: #e2c770;">"M-g"</span> . magit-status))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org110f9b5" class="outline-2">
+<h2 id="org110f9b5"><span class="section-number-2">12</span> Sudo edit</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Opening nano to edit files which require root permission is pain in the butt. This package
+<code>sudo-edit</code> allow us to edit files which require root permission with emacs.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">sudo-edit</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span> (<span style="color: #e2c770;">"s-e"</span> . sudo-edit))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e513b6" class="outline-2">
+<h2 id="org3e513b6"><span class="section-number-2">13</span> Org</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+One of the absolute greatest features of emacs is called “org-mode”. This very file has been
+written in org-mode, a lot of other configurations are written in org-mode, same goes for
+academic papers, presentations, schedules, blogposts and guides. Org-mode is one of the most
+complex things ever, lets make it a bit more usable with some basic configuration.
+</p>
+
+<p>
+Those are all rather self-explanatory.
+</p>
+</div>
+<div id="outline-container-org1823209" class="outline-3">
+<h3 id="org1823209"><span class="section-number-3">13.1</span> Common Settings</h3>
+<div class="outline-text-3" id="text-13-1">
+<p>
+These are just some common settings which makes working in org mode more better.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> org-ellipsis <span style="color: #e2c770;">" "</span>)
+(<span style="color: #fb2874;">setq</span> org-src-fontify-natively t)
+(<span style="color: #fb2874;">setq</span> org-src-tab-acts-natively t)
+(<span style="color: #fb2874;">setq</span> org-confirm-babel-evaluate nil)
+(<span style="color: #fb2874;">setq</span> org-export-with-smart-quotes t)
+(<span style="color: #fb2874;">setq</span> org-src-window-setup 'current-window)
+(add-hook 'org-mode-hook 'org-indent-mode)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9355df0" class="outline-3">
+<h3 id="org9355df0"><span class="section-number-3">13.2</span> Org Bullets</h3>
+<div class="outline-text-3" id="text-13-2">
+<p>
+Pretty bullets to make your org file more pretty and managed.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">org-bullets</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (add-hook 'org-mode-hook (<span style="color: #fb2874;">lambda</span> () (org-bullets-mode 1))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org048767e" class="outline-2">
+<h2 id="org048767e"><span class="section-number-2">14</span> Buffers</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+Workflow with emacs depends alot on Buffers. If you know how to quickly change and manage 
+buffers, you are not a novice in emacs. Sadly by default emacs have some bad way to manage
+buffers. Here I tried to encounter those issues.
+</p>
+</div>
+<div id="outline-container-orgab20ff9" class="outline-4">
+<h4 id="orgab20ff9"><span class="section-number-4">14.0.1</span> Always murder current buffer</h4>
+<div class="outline-text-4" id="text-14-0-1">
+<p>
+Doing <code>C-x k</code> should kill the current buffer at all times. 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">kill-curr-buffer</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd <span style="color: #e2c770;">"C-x k"</span>) 'kill-curr-buffer)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e79ba9" class="outline-4">
+<h4 id="org6e79ba9"><span class="section-number-4">14.0.2</span> Toggle maximize buffer</h4>
+<div class="outline-text-4" id="text-14-0-2">
+<p>
+An Emacs function to temporarily make one buffer fullscreen. You can quickly restore the old window setup. 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">toggle-maximize-buffer</span> () <span style="color: #7f7f80;">"Maximize buffer"</span>
+       (<span style="color: #fb2874;">interactive</span>)
+       (<span style="color: #fb2874;">if</span> (= 1 (length (window-list)))
+           (jump-to-register '_)
+         (<span style="color: #fb2874;">progn</span>
+           (set-register '_ (list (current-window-configuration)))
+           (delete-other-windows))))
+(global-set-key [(super shift return)] 'toggle-maximize-buffer) 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5712329" class="outline-2">
+<h2 id="org5712329"><span class="section-number-2">15</span> Projectile</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+Projectile is an awesome project manager, mostly because it recognized directories with <code>.git</code>
+directory as projects and helps you manage them accordingly.
+</p>
+</div>
+<div id="outline-container-orgd826188" class="outline-3">
+<h3 id="orgd826188"><span class="section-number-3">15.1</span> Enable projectile globally</h3>
+<div class="outline-text-3" id="text-15-1">
+<p>
+This makes sure that everything can be a project.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">projectile</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (projectile-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe670cc" class="outline-3">
+<h3 id="orgfe670cc"><span class="section-number-3">15.2</span> Let projectile call make</h3>
+<div class="outline-text-3" id="text-15-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(global-set-key (kbd <span style="color: #e2c770;">"&lt;f5&gt;"</span>) 'projectile-compile-project)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5b16656" class="outline-2">
+<h2 id="org5b16656"><span class="section-number-2">16</span> Which Key</h2>
+<div class="outline-text-2" id="text-16">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">which-key</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (which-key-mode))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0c65489" class="outline-2">
+<h2 id="org0c65489"><span class="section-number-2">17</span> Text Manipulation</h2>
+</div>
+<div id="outline-container-org48dc3df" class="outline-2">
+<h2 id="org48dc3df"><span class="section-number-2">18</span> Telega</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+Telega is an amazing telegram client inside emacs. I use this very often it contain nearly
+all tdesktop features, even it's better and obviously more faster to use because .. emacs.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">  (<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">telega</span>
+    <span style="color: #fd971f;">:load-path</span>  <span style="color: #e2c770;">"~/telega.el"</span>
+    <span style="color: #fd971f;">:commands</span> (telega)
+    <span style="color: #fd971f;">:defer</span> t
+    <span style="color: #fd971f;">:config</span>
+    (<span style="color: #fb2874;">setq</span> telega-symbol-folder <span style="color: #e2c770;">"&#128194;"</span>)
+    <span style="color: #fd971f;">:init</span>
+    (telega-notifications-mode 1))
+(add-hook 'telega-load-hook 'global-telega-squash-message-mode)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad384a8" class="outline-2">
+<h2 id="orgad384a8"><span class="section-number-2">19</span> IDO</h2>
+<div class="outline-text-2" id="text-19">
+</div>
+<div id="outline-container-orgece4f07" class="outline-3">
+<h3 id="orgece4f07"><span class="section-number-3">19.1</span> Enable IDO mode</h3>
+<div class="outline-text-3" id="text-19-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> ido-enable-flex-matching t)
+(<span style="color: #fb2874;">setq</span> ido-everywhere t)
+(ido-mode 1)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf69f10" class="outline-3">
+<h3 id="orgaf69f10"><span class="section-number-3">19.2</span> IDO vertical</h3>
+<div class="outline-text-3" id="text-19-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">ido-vertical-mode</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (ido-vertical-mode 1))
+(<span style="color: #fb2874;">setq</span> ido-vertical-define-keys 'C-n-and-C-p-only)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org874d1e2" class="outline-3">
+<h3 id="org874d1e2"><span class="section-number-3">19.3</span> Smex</h3>
+<div class="outline-text-3" id="text-19-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">smex</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span> (smex-initialize)
+  <span style="color: #fd971f;">:bind</span>
+  (<span style="color: #e2c770;">"M-x"</span> . smex))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb3ffd0" class="outline-2">
+<h2 id="orgbb3ffd0"><span class="section-number-2">20</span> Buffers</h2>
+<div class="outline-text-2" id="text-20">
+</div>
+<div id="outline-container-org8e70c4b" class="outline-3">
+<h3 id="org8e70c4b"><span class="section-number-3">20.1</span> Enable ibuffer</h3>
+<div class="outline-text-3" id="text-20-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(global-set-key (kbd <span style="color: #e2c770;">"C-x C-b"</span>) 'ibuffer)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88f5e21" class="outline-3">
+<h3 id="org88f5e21"><span class="section-number-3">20.2</span> Expert mode</h3>
+<div class="outline-text-3" id="text-20-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> ibuffer-expert t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgacd80a5" class="outline-3">
+<h3 id="orgacd80a5"><span class="section-number-3">20.3</span> Kill all buffers</h3>
+<div class="outline-text-3" id="text-20-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">kill-all-buffers</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (mapc 'kill-buffer (buffer-list)))
+(global-set-key (kbd <span style="color: #e2c770;">"C-M-s-k"</span>) 'kill-all-buffers)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb23998" class="outline-2">
+<h2 id="orgdb23998"><span class="section-number-2">21</span> Avy</h2>
+<div class="outline-text-2" id="text-21">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">avy</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span>
+  (<span style="color: #e2c770;">"C-."</span> . avy-goto-char))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbdc3e6a" class="outline-2">
+<h2 id="orgbdc3e6a"><span class="section-number-2">22</span> Config edit/reload</h2>
+</div>
+
+<div id="outline-container-org3eddaf7" class="outline-2">
+<h2 id="org3eddaf7"><span class="section-number-2">23</span> Moving Around Emacs</h2>
+<div class="outline-text-2" id="text-23">
+</div>
+<div id="outline-container-org3b89b03" class="outline-3">
+<h3 id="org3b89b03"><span class="section-number-3">23.1</span> Switch Window</h3>
+<div class="outline-text-3" id="text-23-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">switch-window</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">setq</span> switch-window-input-style 'minibuffer)
+  (<span style="color: #fb2874;">setq</span> switch-window-increase 4)
+  (<span style="color: #fb2874;">setq</span> switch-window-threshold 2)
+  (<span style="color: #fb2874;">setq</span> switch-window-shortcut-style 'qwerty)
+  (<span style="color: #fb2874;">setq</span> switch-window-qwerty-shortcuts
+        '(<span style="color: #e2c770;">"a"</span> <span style="color: #e2c770;">"s"</span> <span style="color: #e2c770;">"d"</span> <span style="color: #e2c770;">"f"</span> <span style="color: #e2c770;">"h"</span> <span style="color: #e2c770;">"j"</span> <span style="color: #e2c770;">"k"</span> <span style="color: #e2c770;">"l"</span>))
+  <span style="color: #fd971f;">:bind</span>
+  ([remap other-window] . switch-window))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee82a5d" class="outline-3">
+<h3 id="orgee82a5d"><span class="section-number-3">23.2</span> Following window splits</h3>
+<div class="outline-text-3" id="text-23-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">split-and-follow-horizontally</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd <span style="color: #e2c770;">"C-x 2"</span>) 'split-and-follow-horizontally)
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">split-and-follow-vertically</span> ()
+  (<span style="color: #fb2874;">interactive</span>)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd <span style="color: #e2c770;">"C-x 3"</span>) 'split-and-follow-vertically)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd04a73c" class="outline-2">
+<h2 id="orgd04a73c"><span class="section-number-2">24</span> Auto Completion</h2>
+<div class="outline-text-2" id="text-24">
+</div>
+<div id="outline-container-orgb03299b" class="outline-3">
+<h3 id="orgb03299b"><span class="section-number-3">24.1</span> Company</h3>
+<div class="outline-text-3" id="text-24-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">company</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">setq</span> company-idle-delay 1)
+  (<span style="color: #fb2874;">setq</span> company-minimum-prefix-length 3)
+  <span style="color: #fd971f;">:init</span>
+  (company-mode 1))
+
+(<span style="color: #fb2874;">with-eval-after-load</span> 'company
+  (define-key company-active-map (kbd <span style="color: #e2c770;">"M-n"</span>) nil)
+  (define-key company-active-map (kbd <span style="color: #e2c770;">"M-p"</span>) nil)
+  (define-key company-active-map (kbd <span style="color: #e2c770;">"C-n"</span>) #'company-select-next)
+  (define-key company-active-map (kbd <span style="color: #e2c770;">"C-p"</span>) #'company-select-previous)
+  (define-key company-active-map (kbd <span style="color: #e2c770;">"SPC"</span>) #'company-abort))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9ff2179" class="outline-2">
+<h2 id="org9ff2179"><span class="section-number-2">25</span> Swiper</h2>
+<div class="outline-text-2" id="text-25">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">swiper</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:bind</span> (<span style="color: #e2c770;">"C-s"</span> . swiper))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged2f28e" class="outline-2">
+<h2 id="orged2f28e"><span class="section-number-2">26</span> Clock</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+A clock to see time. Because time is important. 
+</p>
+</div>
+<div id="outline-container-orga822502" class="outline-3">
+<h3 id="orga822502"><span class="section-number-3">26.1</span> Time Format</h3>
+<div class="outline-text-3" id="text-26-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> display-time-24hr-format t)
+(<span style="color: #fb2874;">setq</span> display-time-format <span style="color: #e2c770;">"%H:%M"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org564546c" class="outline-3">
+<h3 id="org564546c"><span class="section-number-3">26.2</span> Enabling the mode</h3>
+<div class="outline-text-3" id="text-26-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(display-time-mode 1)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf3b15a0" class="outline-2">
+<h2 id="orgf3b15a0"><span class="section-number-2">27</span> Music</h2>
+<div class="outline-text-2" id="text-27">
+<p>
+Music in emacs
+</p>
+</div>
+<div id="outline-container-orge6d1340" class="outline-3">
+<h3 id="orge6d1340"><span class="section-number-3">27.1</span> EMMS</h3>
+<div class="outline-text-3" id="text-27-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">emms</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+    (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">emms-setup</span>)
+    (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">emms-player-mpd</span>)
+    (emms-all) <span style="color: #555556;">; </span><span style="color: #555556;">don't change this to values you see on stackoverflow questions if you expect emms to work</span>
+    (<span style="color: #fb2874;">setq</span> emms-seek-seconds 5)
+    (<span style="color: #fb2874;">setq</span> emms-player-list '(emms-player-mpd))
+    (<span style="color: #fb2874;">setq</span> emms-info-functions '(emms-info-mpd))
+    (<span style="color: #fb2874;">setq</span> emms-player-mpd-server-name <span style="color: #e2c770;">"localhost"</span>)
+    (<span style="color: #fb2874;">setq</span> emms-player-mpd-server-port <span style="color: #e2c770;">"6602"</span>)
+  <span style="color: #fd971f;">:bind</span>
+    (<span style="color: #e2c770;">"s-m p"</span> . emms)
+    (<span style="color: #e2c770;">"s-m b"</span> . emms-smart-browse)
+    (<span style="color: #e2c770;">"s-m r"</span> . emms-player-mpd-update-all-reset-cache)
+    (<span style="color: #e2c770;">"&lt;XF86AudioPrev&gt;"</span> . emms-previous)
+    (<span style="color: #e2c770;">"&lt;XF86AudioNext&gt;"</span> . emms-next)
+    (<span style="color: #e2c770;">"&lt;XF86AudioPlay&gt;"</span> . emms-pause)
+    (<span style="color: #e2c770;">"&lt;XF86AudioStop&gt;"</span> . emms-stop))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1f4b843" class="outline-3">
+<h3 id="org1f4b843"><span class="section-number-3">27.2</span> MPC</h3>
+<div class="outline-text-3" id="text-27-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> mpc-host <span style="color: #e2c770;">"localhost:6602"</span>)
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/start-music-daemon</span> ()
+  <span style="color: #7f7f80;">"Start MPD, connects to it and syncs the metadata cache."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (shell-command <span style="color: #e2c770;">"mpd"</span>)
+  (mpd/update-database)
+  (emms-player-mpd-connect)
+  (emms-cache-set-from-mpd-all)
+  (message <span style="color: #e2c770;">"MPD Started!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m c"</span>) 'mpd/start-music-daemon)
+
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/kill-music-daemon</span> ()
+  <span style="color: #7f7f80;">"Stops playback and kill the music daemon."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (emms-stop)
+  (call-process <span style="color: #e2c770;">"killall"</span> nil nil nil <span style="color: #e2c770;">"mpd"</span>)
+  (message <span style="color: #e2c770;">"MPD Killed!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m k"</span>) 'mpd/kill-music-daemon)
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/update-database</span> ()
+  <span style="color: #7f7f80;">"Updates the MPD database synchronously."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (call-process <span style="color: #e2c770;">"mpc"</span> nil nil nil <span style="color: #e2c770;">"update"</span>)
+  (message <span style="color: #e2c770;">"MPD Database Updated!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m u"</span>) 'mpd/update-database)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f1c12b" class="outline-2">
+<h2 id="org3f1c12b"><span class="section-number-2">28</span> Symon</h2>
+</div>
+<div id="outline-container-org2f0751c" class="outline-2">
+<h2 id="org2f0751c"><span class="section-number-2">29</span> EMMS</h2>
+<div class="outline-text-2" id="text-29">
+<p>
+Music player
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">emms</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:config</span>
+  (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">emms-setup</span>)
+  (<span style="color: #fb2874;">require</span> '<span style="color: #fd971f;">emms-player-mpd</span>)
+  (emms-all) <span style="color: #555556;">; </span><span style="color: #555556;">don't change this to values you see on stackoverflow questions if you expect emms to work</span>
+  (<span style="color: #fb2874;">setq</span> emms-seek-seconds 5)
+  (<span style="color: #fb2874;">setq</span> emms-player-list '(emms-player-mpd))
+  (<span style="color: #fb2874;">setq</span> emms-info-functions '(emms-info-mpd))
+  (<span style="color: #fb2874;">setq</span> emms-player-mpd-server-name <span style="color: #e2c770;">"localhost"</span>)
+  (<span style="color: #fb2874;">setq</span> emms-player-mpd-server-port <span style="color: #e2c770;">"6602"</span>)
+  <span style="color: #fd971f;">:bind</span>
+  (<span style="color: #e2c770;">"s-m p"</span> . emms)
+  (<span style="color: #e2c770;">"s-m b"</span> . emms-smart-browse)
+  (<span style="color: #e2c770;">"s-m r"</span> . emms-player-mpd-update-all-reset-cache)
+  (<span style="color: #e2c770;">"&lt;XF86AudioPrev&gt;"</span> . emms-previous)
+  (<span style="color: #e2c770;">"&lt;XF86AudioNext&gt;"</span> . emms-next)
+  (<span style="color: #e2c770;">"&lt;XF86AudioPlay&gt;"</span> . emms-pause)
+  (<span style="color: #e2c770;">"&lt;XF86AudioStop&gt;"</span> . emms-stop))
+</pre>
+</div>
+<p>
+MPC
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">setq</span> mpc-host <span style="color: #e2c770;">"localhost:6602"</span>)
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/start-music-daemon</span> ()
+  <span style="color: #7f7f80;">"Start MPD, connects to it and syncs the metadata cache."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (shell-command <span style="color: #e2c770;">"mpd"</span>)
+  (mpd/update-database)
+  (emms-player-mpd-connect)
+  (emms-cache-set-from-mpd-all)
+  (message <span style="color: #e2c770;">"MPD Started!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m c"</span>) 'mpd/start-music-daemon)
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/kill-music-daemon</span> ()
+  <span style="color: #7f7f80;">"Stops playback and kill the music daemon."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (emms-stop)
+  (call-process <span style="color: #e2c770;">"killall"</span> nil nil nil <span style="color: #e2c770;">"mpd"</span>)
+  (message <span style="color: #e2c770;">"MPD Killed!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m k"</span>) 'mpd/kill-music-daemon)
+
+(<span style="color: #fb2874;">defun</span> <span style="color: #b6e63e;">mpd/update-database</span> ()
+  <span style="color: #7f7f80;">"Updates the MPD database synchronously."</span>
+  (<span style="color: #fb2874;">interactive</span>)
+  (call-process <span style="color: #e2c770;">"mpc"</span> nil nil nil <span style="color: #e2c770;">"update"</span>)
+  (message <span style="color: #e2c770;">"MPD Database Updated!"</span>))
+(global-set-key (kbd <span style="color: #e2c770;">"s-m u"</span>) 'mpd/update-database)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">fancy-battery</span>
+  <span style="color: #fd971f;">:ensure</span> t)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b3e1bf" class="outline-2">
+<h2 id="org7b3e1bf"><span class="section-number-2">30</span> Dired Launch</h2>
+<div class="outline-text-2" id="text-30">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #fb2874;">use-package</span> <span style="color: #fd971f;">dired-launch</span>
+  <span style="color: #fd971f;">:ensure</span> t
+  <span style="color: #fd971f;">:init</span>
+  (dired-launch-enable))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Suraj Kushwah</p>
+<p class="date">Created: 2021-07-22 Thu 05:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
