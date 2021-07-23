@@ -41,7 +41,7 @@
    - Year: 2010
    - Genre: Sci-fi/Romance
    - Rotten Tomatoes: 71%
-   - Torrent: [[./assets/movies/torrents/never-let-me-go.torrent][Never Let Me Go (2010) 1080p BrRip x264 - YIFY]]    
+   - Torrent: [[./assets/movies/torrents/never-let-me-go.torrent][Never Let Me Go (2010) 1080p BrRip x264 - YIFY]]
 
    #+CAPTION: A scene from the film.
    [[./assets/movies/never-let-me-go.jpg]]
@@ -49,8 +49,8 @@
    *My thoughts*
    
    _I love this movie_. It's based on a /Kazuo Ishiguro's 2005 novel Never Let Me Go/.
-   It's really hard to put in words but all I can say is, for me this movie show the
-   value of your life. I love drama movies and this is the best one of the best I got.
+   It's really hard to put in words but all I can say is, for me _this movie shows the
+   value of your life_. I love drama movies and this is one of the best I got.
 
    #+CAPTION: Screenshot from the movie.
    [[./assets/movies/never-let-me-go-2.png]]
@@ -60,19 +60,81 @@
    movie is not a horror movie but it left a sense of fear inside you. But if you are into
    reading novels, then I will recommend reading novel.
      
-** Scott Pilgrim vs the World
-** Mother
-** If I stay
+** Scott Pilgrim vs the World (2010)
+   Scott Pilgrim meets Ramona and instantly falls in love with her.
+   But when he meets one of her exes at a band competition, he realises
+   that he has to deal with all seven of her exes to woo her.
+   - Year: 2010
+   - Genre: Action/Romance/Comedy
+   - Rotten Tomatoes: 82%
+   - Torrent: [[./assets/movies/torrents/scott-pilgrim-vs-the-world.torrent][Scott Pilgrim Vs The World 2010 1080p BluRay HEVC H265 BONE]]
+
+   #+CAPTION: Cute scene from the film.
+   [[./assets/movies/scott-pilgrim-vs-the-world.jpg]]
+   
+   *My Thoughts*
+
+   This movie is a pure Art. I love quick clever humor. This movie makes me laugh /real hard/.
+   Movie goes very quick, So no point of getting bored.
+
+   #+CAPTION: I love all songs of this movie.
+   [[./assets/movies/scott-pilgrim-song.jpg]]
+   
+   #+CAPTION: Every little joke is adorable.
+   [[./assets/movies/scott-pilgrim-quote.jpg]]
+
+   #+CAPTION: Badass battle scenes by Ramona is satisfying to watch.
+   [[./assets/movies/scott-pilgrim-vs-the-world.gif]]
+     
+   You can't find any movie similar to this. It's a very unique movie to watch.
+   
+** Mother (2017)
+   A poet and his wife lead a tranquil existence in a burnt-out house.
+   However, when uninvited guests come barging in, the couple's life
+   turns chaotic and shocking events unfold.
+   - Year: 2017
+   - Genre: Horror/Thriller
+   - Rotten Tomatoes: 68%
+   - Torrent: [[./assets/movies/torrents/mother.torrent][Mother! (2017) [1080p] [YTS] [YIFY]​]]
+
+   #+CAPTION: Movie poster + Scene combined.
+   [[./assets/movies/mother2.jpg]]
+
+   *My Thoughts*
+   
+   This movie will f**k you up completely. It's will confuse you. In start you might
+   end up getting bored and in the last you might end up getting frustrated.
+
+   I have to say [[https://en.wikipedia.org/wiki/Jennifer_Lawrence][Jennifer Lawrence]] did brilliant acting, This is first time I love her role,
+   100 times better than [[https://en.wikipedia.org/wiki/The_Hunger_Games][The Hunger Games]].
+
+   I want you remember some points before watching this movie.
+
+   - +This is a horror movie+. It's not!
+   - Finish the whole movie carefully, even if it makes no sense.
+   - Don't forget to watch [[https://youtu.be/IdlOj1n3vXA][mother! (2017) Ending Explained + Analysis]] after the movie.
+
+   #+CAPTION: A scene from the film.
+   [[./assets/movies/mother.jpg]]   
+
+   I must say this movie is way too deep and clever written. I love the ending, all the
+   drama and weirdness this movie holds.
+   If you like crazy thrillers then give it a shot!
+   
+   
+** If I Stay (2014)
    I like drama movies and if I stay is a full drama.
    I love this movie.
    #+CAPTION: A scene from the movie.
    [[./assets/movies/if-i-stay.jpg]]
+
 * Korean Movies
 ** Il Mare
 ** My Girl and I
 ** Windstruck
 ** A man who was Superman
 ** My sassy girl
-** The Classic   
+** The Classic
+   
 * Bollywood movies
 * Anime movies  
