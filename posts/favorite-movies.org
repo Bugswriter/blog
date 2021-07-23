@@ -13,7 +13,7 @@
    - Year: 2010
    - Genre: Drama/History
    - Rotten Tomatoes: 96%
-   - Torrent: [[./assets/movies/torrents/the-social-network.torrent][The Social Network (2010) 1080p BrRip x264 - 1.2GB - YIFY]]
+
    #+CAPTION: A hacking scene from the movie.
    [[./assets/movies/the-social-network.jpg]]
    
@@ -41,7 +41,6 @@
    - Year: 2010
    - Genre: Sci-fi/Romance
    - Rotten Tomatoes: 71%
-   - Torrent: [[./assets/movies/torrents/never-let-me-go.torrent][Never Let Me Go (2010) 1080p BrRip x264 - YIFY]]
 
    #+CAPTION: A scene from the film.
    [[./assets/movies/never-let-me-go.jpg]]
@@ -55,8 +54,9 @@
    #+CAPTION: Screenshot from the movie.
    [[./assets/movies/never-let-me-go-2.png]]
 
-   I strongly recommend you this movie. It will make you cry. I mean I hardly cry watching
-   movies, but this was tough for me too. [[https://en.wikipedia.org/wiki/Andrew_Garfield][Andrew Garfield]] did really awesome acting. This
+   I strongly recommend you this movie. Remember, this movie can make you cry.
+   I hardly cry watching movies, but this was tough for me too.
+   [[https://en.wikipedia.org/wiki/Andrew_Garfield][Andrew Garfield]] did really awesome acting. This
    movie is not a horror movie but it left a sense of fear inside you. But if you are into
    reading novels, then I will recommend reading novel.
      
@@ -67,7 +67,6 @@
    - Year: 2010
    - Genre: Action/Romance/Comedy
    - Rotten Tomatoes: 82%
-   - Torrent: [[./assets/movies/torrents/scott-pilgrim-vs-the-world.torrent][Scott Pilgrim Vs The World 2010 1080p BluRay HEVC H265 BONE]]
 
    #+CAPTION: Cute scene from the film.
    [[./assets/movies/scott-pilgrim-vs-the-world.jpg]]
@@ -121,17 +120,58 @@
    drama and weirdness this movie holds.
    If you like crazy thrillers then give it a shot!
    
-   
 ** If I Stay (2014)
    I like drama movies and if I stay is a full drama.
    I love this movie.
    #+CAPTION: A scene from the movie.
    [[./assets/movies/if-i-stay.jpg]]
 
+   
 * Korean Movies
+** My Girl and I (2005)
+   My Girl and I is a 2005 South Korean film directed by Jeon Yun-su.
+   It is a remake of the Japanese film Crying Out Love, In the Center
+   of the World, adapted from the novel Socrates in Love by Kyoichi Katayama.
+   - Year: 2005
+   - Genre: Romance/Drama
+   - Rotten Tomatoes: 67%
+
+   #+CAPTION: A scene from the film.
+   [[./assets/movies/my-girl-and-i.jpg]]
+
+   *My Thoughts*
+   This was the first korean movie I ever watched, I enjoyed it. I started loving
+   korean romance drama. Because they never go over the top. Korean love story
+   movies are pretty simple but lovely.
+   
+   #+CAPTION: My Girl and I movie poster.
+   [[./assets/movies/my-girl-and-i-poster.jpg]]
+
+   This movie showed some teenage love. I believe if you are a teenager, you
+   might love this movie more. I watched this movie at my teenage.
+   
+** Windstruck (2004)
+   Windstruck is a 2004 South Korean romantic drama. It stars Jun Ji-hyun, Jang
+   Hyuk, and was directed by Kwak Jae-yong. The film held its premiere in Hong Kong,
+   attended by Jang and Jun, on 28 May 2004, being the first Korean film to do so.
+   It was released on June 3, 2004 by CJ Entertainment and ran at 123 minutes.
+   - Year: 2004
+   - Genre: Romance/Drama
+   - Rotten Tomatoes: (No Rating)
+
+   #+CAPTION: A scene from the film.
+   [[./assets/movies/windstruck-poster.jpg]]  
+
+
+   *My thoughts*
+   First of all, _I love [[https://en.wikipedia.org/wiki/Jun_Ji-hyun][Jun Ji-hyun]]_, she is the reason why I started watching korean
+   movies. Her expressions are adorable. You should definitely watch this movie.
+   This movie is a complete mix, it's funny, sad, action everything.
+   
+   #+CAPTION: A scene from the film.
+   [[./assets/movies/windstruck.jpg]]   
+
 ** Il Mare
-** My Girl and I
-** Windstruck
 ** A man who was Superman
 ** My sassy girl
 ** The Classic
