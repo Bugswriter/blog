@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}List of Blogs{% endblock %}
+{% block content %}
+<h1>{{ metadata.title }}</h1>
+<small>{{ metadata.date }}</small>
+<div>
+  {{ content|safe }}
+</div>
+<div>
+  <h4>Similar Blogs -</h4>
+  <ul>
+    {% for suggestion in suggestions %}
+    <li><a href="{{ suggestion.slug }}">{{ suggestion.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
