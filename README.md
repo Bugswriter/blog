@@ -32,6 +32,6 @@ Contributions to this project are welcome! If you have any suggestions, bug repo
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](https://choosealicense.com/licenses/gpl-3.0/) file for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for details.
 
 Happy blogging! 📝✨
